@@ -1,0 +1,1 @@
+(()=>{const countKeys={'notes.html':'studyhubNotes','courses.html':'studyhubCourses','progress.html':'studyhubTasks'};document.querySelectorAll('[data-count]').forEach(el=>{const href=el.closest('.card')?.querySelector('a')?.getAttribute('href'),key=countKeys[href];if(key){try{el.textContent=JSON.parse(localStorage.getItem(key)||'[]').length}catch(_){el.textContent='0'}}});})();
