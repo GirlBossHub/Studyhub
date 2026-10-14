@@ -1,1 +1,156 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10284b"><title>Study timer | StudyHub</title><link rel="stylesheet" href="style.css"></head><body data-page="alarm"><header class="top"><a class="brand" href="index.html">Study<span>Hub</span></a><nav aria-label="Main navigation"><a href="dashboard.html" data-page="dashboard">Dashboard</a><a href="community.html" data-page="community">Community</a><a href="notes.html" data-page="notes">Notes</a><a href="library.html" data-page="library">E-library</a><a href="courses.html" data-page="courses">Courses</a><a href="quizzes.html" data-page="quizzes">Quizzes</a><a href="gpa.html" data-page="gpa">GPA calculator</a><a href="alarm.html" data-page="alarm">Study timer</a><a href="timetable.html" data-page="timetable">Timetable</a><a href="progress.html" data-page="progress">Progress</a><a href="settings.html" data-page="settings">Settings</a></nav></header><main class="wrap"><div style="margin-bottom:22px"><div class="eyebrow">Focus with confidence</div><h1 style="margin:5px 0">Study alarm & timer</h1><p class="muted">Test your sound first. Keep this page open while the timer runs.</p></div><section class="card" style="max-width:650px"><div class="eyebrow">Focus session</div><div id="clock" class="stat" style="font-size:clamp(3rem,12vw,5rem);margin:12px 0">25:00</div><div class="field"><label for="minutes">Session length (minutes)</label><input id="minutes" type="number" min="1" max="240" value="25"></div><div class="actions"><button id="testSound" class="secondary" type="button">Test alarm sound</button><button id="startTimer" class="gold" type="button">Start timer</button><button id="stopTimer" class="secondary" type="button">Stop</button><button id="snoozeTimer" class="secondary" type="button" disabled>Snooze 5 min</button></div><p id="alarmStatus" class="notice" aria-live="polite">Tap “Test alarm sound” and allow audio if your browser asks.</p></section><div class="notice">Important: this browser prototype can ring while the page is open and active. It cannot guarantee an alarm if the browser is closed, the device is asleep, or the operating system stops the page.</div></main><footer class="footer">StudyHub · A student project prototype · <span id="year">2026</span></footer><script src="js/main.js"></script><script src="alarm.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10284b">
+  <title>Study timer | StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="alarm">
+
+  <div class="sh-layout">
+
+    <!-- Sidebar -->
+    <aside class="sh-sidebar" id="studyhubSidebar">
+      <a class="brand" href="dashboard.html">
+        Study<span>Hub</span>
+      </a>
+
+      <div class="sidebar-label">Main menu</div>
+
+      <nav aria-label="StudyHub navigation">
+        <a href="dashboard.html" data-page="dashboard">Dashboard</a>
+        <a href="community.html" data-page="community">Community</a>
+        <a href="notes.html" data-page="notes">Notes</a>
+        <a href="library.html" data-page="library">E-library</a>
+        <a href="courses.html" data-page="courses">Courses</a>
+        <a href="quizzes.html" data-page="quizzes">Quizzes</a>
+        <a href="gpa.html" data-page="gpa">GPA calculator</a>
+        <a href="alarm.html" data-page="alarm">Study timer</a>
+        <a href="timetable.html" data-page="timetable">Timetable</a>
+        <a href="progress.html" data-page="progress">Progress</a>
+        <a href="settings.html" data-page="settings">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="sh-main">
+
+      <button
+        type="button"
+        class="sh-menu-toggle"
+        id="sidebarToggle"
+        aria-controls="studyhubSidebar"
+        aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <main class="sh-content">
+
+        <div style="margin-bottom:22px">
+          <div class="eyebrow">Focus with confidence</div>
+          <h1 style="margin:5px 0">Study alarm &amp; timer</h1>
+          <p class="muted">
+            Set your focus session, test your alarm sound,
+            and make time for learning.
+          </p>
+        </div>
+
+        <section class="card" style="max-width:650px">
+
+          <div class="eyebrow">Focus session</div>
+
+          <div
+            id="clock"
+            class="stat"
+            style="font-size:clamp(3rem,12vw,5rem);margin:12px 0">
+            25:00
+          </div>
+
+          <div class="field">
+            <label for="minutes">Session length (minutes)</label>
+            <input
+              id="minutes"
+              type="number"
+              min="1"
+              max="240"
+              value="25">
+          </div>
+
+          <div class="actions">
+            <button
+              id="testSound"
+              class="secondary"
+              type="button">
+              Test alarm sound
+            </button>
+
+            <button
+              id="startTimer"
+              class="gold"
+              type="button">
+              Start timer
+            </button>
+
+            <button
+              id="stopTimer"
+              class="secondary"
+              type="button">
+              Stop
+            </button>
+
+            <button
+              id="snoozeTimer"
+              class="secondary"
+              type="button"
+              disabled>
+              Snooze 5 min
+            </button>
+          </div>
+
+          <p
+            id="alarmStatus"
+            class="notice"
+            aria-live="polite">
+            Tap “Test alarm sound” and allow audio if your
+            browser asks.
+          </p>
+
+        </section>
+
+        <div class="notice" style="margin-top:20px">
+          <strong>Important:</strong> This browser prototype can
+          ring while the page is open and active. It cannot
+          guarantee an alarm if the browser is closed, the device
+          is asleep, or the operating system stops the page.
+        </div>
+
+      </main>
+
+      <footer class="footer">
+        StudyHub · A student project prototype ·
+        <span id="year">2026</span>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Preserve the original JavaScript files -->
+  <script src="js/main.js"></script>
+  <script src="alarm.js"></script>
+
+  <!-- Mobile sidebar toggle -->
+  <script>
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const studyhubSidebar = document.getElementById("studyhubSidebar");
+
+    sidebarToggle.addEventListener("click", () => {
+      const isOpen = studyhubSidebar.classList.toggle("is-open");
+      sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  </script>
+
+</body>
+  </html>
