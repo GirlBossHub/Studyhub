@@ -1,1 +1,103 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10284b"><title>My notes | StudyHub</title><link rel="stylesheet" href="style.css"></head><body data-page="notes"><header class="top"><a class="brand" href="index.html">Study<span>Hub</span></a><nav aria-label="Main navigation"><a href="dashboard.html" data-page="dashboard">Dashboard</a><a href="community.html" data-page="community">Community</a><a href="notes.html" data-page="notes">Notes</a><a href="library.html" data-page="library">E-library</a><a href="courses.html" data-page="courses">Courses</a><a href="quizzes.html" data-page="quizzes">Quizzes</a><a href="gpa.html" data-page="gpa">GPA calculator</a><a href="alarm.html" data-page="alarm">Study timer</a><a href="timetable.html" data-page="timetable">Timetable</a><a href="progress.html" data-page="progress">Progress</a><a href="settings.html" data-page="settings">Settings</a></nav></header><main class="wrap"><div style="margin-bottom:22px"><div class="eyebrow">Study smarter, one step at a time</div><h1 style="margin:5px 0">My notes</h1><p class="muted" style="margin:0">Create, search, edit and delete your own study notes.</p></div><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><section class="card"><h2>Create a note</h2><form id="noteForm"><div class="field"><label for="title">Title</label><input id="title" name="title" required maxlength="100" placeholder="e.g. Introduction to HTML"></div><div class="field"><label for="body">Note</label><textarea id="body" name="body" required placeholder="Write your key points..."></textarea></div><button class="gold">Save note</button></form></section><section class="card"><h2>Find your notes</h2><input id="search" aria-label="Search notes" placeholder="Search title or content"><div class="notice">Notes are saved in this browser only.</div></section></div><h2 class="section-title">Your notes</h2><div id="noteList" class="list"></div></main><footer class="footer">StudyHub · A student project prototype · <span id="year">2026</span></footer><script src="js/main.js"></script><script src="notes.js"></script></body></html>
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10284b">
+  <title>My notes | StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head><body data-page="notes">
+  <div class="sh-layout"><aside class="sh-sidebar" id="studyhubSidebar">
+  <a class="brand" href="dashboard.html">Study<span>Hub</span></a>
+
+  <div class="sidebar-label">Workspace</div>
+  <nav aria-label="StudyHub navigation">
+    <a href="dashboard.html" data-page="dashboard">⌂ Dashboard</a>
+    <a href="community.html" data-page="community">♧ Community</a>
+  </nav>
+
+  <div class="sidebar-label">Study tools</div>
+  <nav aria-label="Study tools">
+    <a href="notes.html" data-page="notes" class="active">✎ Notes</a>
+    <a href="library.html" data-page="library">▤ E-library</a>
+    <a href="courses.html" data-page="courses">▣ Courses</a>
+    <a href="quizzes.html" data-page="quizzes">✓ Quizzes</a>
+    <a href="gpa.html" data-page="gpa">▦ GPA calculator</a>
+    <a href="alarm.html" data-page="alarm">◷ Study timer</a>
+    <a href="timetable.html" data-page="timetable">▤ Timetable</a>
+    <a href="progress.html" data-page="progress">↗ Progress</a>
+  </nav>
+
+  <div class="sidebar-label">Account</div>
+  <nav aria-label="Account settings">
+    <a href="settings.html" data-page="settings">⚙ Settings</a>
+  </nav>
+</aside>
+
+<div class="sh-main">
+  <button class="sh-menu-toggle" id="sidebarToggle"
+    type="button" aria-controls="studyhubSidebar"
+    aria-expanded="false">☰ Menu</button>
+
+  <main class="sh-content">
+    <div class="page-intro">
+      <div class="eyebrow">Study smarter, one step at a time</div>
+      <h1>My notes</h1>
+      <p class="muted">Create, search, edit and delete your own study notes.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <section class="card">
+        <h2>Create a note</h2>
+        <form id="noteForm">
+          <div class="field">
+            <label for="title">Title</label>
+            <input id="title" name="title" required maxlength="100"
+              placeholder="e.g. Introduction to HTML">
+          </div>
+
+          <div class="field">
+            <label for="body">Note</label>
+            <textarea id="body" name="body" required
+              placeholder="Write your key points..."></textarea>
+          </div>
+
+          <button class="gold" type="submit">Save note</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Find your notes</h2>
+        <input id="search" aria-label="Search notes"
+          placeholder="Search title or content">
+        <div class="notice">Notes are saved in this browser only.</div>
+      </section>
+    </div>
+
+    <h2 class="section-title">Your notes</h2>
+    <div id="noteList" class="list"></div>
+  </main>
+
+  <footer class="footer">
+    StudyHub · A student project prototype · <span id="year">2026</span>
+  </footer>
+</div>
+
+  </div>  <script src="js/main.js"></script>  <script src="notes.js"></script>  <script>
+    const menuButton = document.getElementById("sidebarToggle");
+    const sidebar = document.getElementById("studyhubSidebar");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = sidebar.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    sidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        sidebar.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script></body>
+</html>
