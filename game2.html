@@ -1,0 +1,216 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10284b">
+  <meta name="description" content="Play Word Scramble on StudyHub and improve your ICT vocabulary.">
+  <title>Word Scramble | StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="game">
+
+  <div class="sh-layout">
+
+    <aside class="sh-sidebar" id="studyhubSidebar">
+      <a class="brand" href="dashboard.html">
+        Study<span>Hub</span>
+      </a>
+
+      <div class="sidebar-label">Main menu</div>
+
+      <nav aria-label="StudyHub navigation">
+        <a href="dashboard.html" data-page="dashboard">Dashboard</a>
+        <a href="community.html" data-page="community">Community</a>
+        <a href="notes.html" data-page="notes">Notes</a>
+        <a href="library.html" data-page="library">E-library</a>
+        <a href="courses.html" data-page="courses">Courses</a>
+        <a href="quizzes.html" data-page="quizzes">Quizzes</a>
+        <a href="gpa.html" data-page="gpa">GPA calculator</a>
+        <a href="alarm.html" data-page="alarm">Study timer</a>
+        <a href="timetable.html" data-page="timetable">Timetable</a>
+        <a href="progress.html" data-page="progress">Progress</a>
+        <a href="settings.html" data-page="settings">Settings</a>
+        <a href="game.html" data-page="game" class="active">🎮 Game Zone</a>
+      </nav>
+    </aside>
+
+    <div class="sh-main">
+
+      <button
+        type="button"
+        class="sh-menu-toggle"
+        id="sidebarToggle"
+        aria-controls="studyhubSidebar"
+        aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <main class="sh-content game-zone">
+
+        <div class="game-heading">
+          <div class="eyebrow">Learn. Play. Improve.</div>
+          <h1>StudyHub Game Zone 🎮</h1>
+          <p class="muted">
+            Take a break from studying and challenge your brain.
+          </p>
+        </div>
+
+        <section class="game-hero card">
+          <div class="game-hero-icon">🔤</div>
+          <div>
+            <span class="game-tag">GAME 01 · WORD PUZZLE</span>
+            <h2>Word Scramble</h2>
+            <p>
+              Unscramble computer and ICT words before the timer runs out.
+              Every correct answer earns you 10 points.
+            </p>
+          </div>
+        </section>
+
+        <div class="game-stats">
+          <article class="card game-stat">
+            <span>Current score</span>
+            <strong id="score">0</strong>
+          </article>
+
+          <article class="card game-stat">
+            <span>Personal best</span>
+            <strong id="bestScore">0</strong>
+          </article>
+
+          <article class="card game-stat">
+            <span>Time left</span>
+            <strong id="timeLeft">60s</strong>
+          </article>
+        </div>
+
+        <!-- Welcome screen -->
+        <section class="card game-screen" id="startScreen">
+          <div class="game-center">
+            <div class="game-large-icon">🧠</div>
+            <h2>Ready to test your brain?</h2>
+            <p class="muted">
+              You have 60 seconds. Solve as many words as you can.
+              Use hints when you get stuck.
+            </p>
+
+            <ul class="game-rules">
+              <li>Correct answer: +10 points</li>
+              <li>Wrong answer: no points deducted</li>
+              <li>Skip a difficult word whenever you need to</li>
+              <li>Your best score is saved in this browser</li>
+            </ul>
+
+            <button type="button" class="gold" id="startGame">
+              Start playing →
+            </button>
+          </div>
+        </section>
+
+        <!-- Playing screen -->
+        <section class="card game-screen" id="playScreen" hidden>
+          <div class="game-progress-row">
+            <span id="questionNumber">Word 1</span>
+            <span id="streak">Streak: 0</span>
+          </div>
+
+          <div class="game-progress-track">
+            <div id="timeBar" class="game-progress-fill"></div>
+          </div>
+
+          <div class="game-center">
+            <p class="muted">Unscramble this word</p>
+
+            <div id="scrambledWord" class="scrambled-word">
+              R E T U P M O C
+            </div>
+
+            <p id="hint" class="game-hint">
+              Hint: A device used to process data.
+            </p>
+
+            <form id="answerForm" class="game-answer-form">
+              <label for="answer">Your answer</label>
+              <input
+                id="answer"
+                type="text"
+                autocomplete="off"
+                autocapitalize="none"
+                placeholder="Type your answer..."
+                maxlength="30"
+                required>
+
+              <button type="submit" class="gold">
+                Check answer
+              </button>
+            </form>
+
+            <p id="feedback" class="game-feedback" aria-live="polite"></p>
+
+            <div class="actions game-actions">
+              <button type="button" class="secondary" id="showHint">
+                Show hint
+              </button>
+
+              <button type="button" class="secondary" id="skipWord">
+                Skip word →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results screen -->
+        <section class="card game-screen" id="resultScreen" hidden>
+          <div class="game-center">
+            <div class="game-large-icon" id="resultIcon">🏆</div>
+            <h2 id="resultTitle">Game complete!</h2>
+            <p class="muted" id="resultMessage">
+              Great effort. Ready for another round?
+            </p>
+
+            <div class="final-score">
+              <span>YOUR SCORE</span>
+              <strong id="finalScore">0</strong>
+              <span>points</span>
+            </div>
+
+            <p id="bestMessage" class="game-hint"></p>
+
+            <button type="button" class="gold" id="playAgain">
+              Play again ↻
+            </button>
+          </div>
+        </section>
+
+        <p class="muted game-footer-note">
+          StudyHub Word Scramble · Your personal scores stay in this browser.
+        </p>
+
+      </main>
+
+      <footer class="footer">
+        StudyHub · A student project prototype ·
+        <span id="year">2026</span>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
+
+  <script>
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const studyhubSidebar = document.getElementById("studyhubSidebar");
+
+    sidebarToggle.addEventListener("click", () => {
+      const isOpen = studyhubSidebar.classList.toggle("is-open");
+      sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  </script>
+
+</body>
+</html>
