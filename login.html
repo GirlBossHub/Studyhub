@@ -1,1 +1,69 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Log in | StudyHub</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html">Study<span>Hub</span></a><nav><a href="index.html">Home</a><a href="signup.html">Create profile</a></nav></header><main class="wrap"><section class="card" style="max-width:540px;margin:auto"><div class="eyebrow">Welcome back</div><h1>Open StudyHub</h1><p class="muted">This is a local demo, not secure account authentication. Enter your display name and email to continue.</p><form data-auth><div class="field"><label for="name">Your name</label><input id="name" maxlength="70" placeholder="Student" required></div><div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"></div><button class="gold">Continue</button></form></section></main><script src="auth.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <a class="brand" href="index.html">
+      Study<span>Hub</span>
+    </a>
+  </header>
+
+  <main class="wrap">
+    <section class="card" style="max-width:540px;margin:auto">
+
+      <div class="eyebrow">Welcome back</div>
+      <h1>Log in to StudyHub</h1>
+
+      <p class="muted">
+        Enter your email and password to continue learning.
+      </p>
+
+      <form id="loginForm">
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button class="gold" type="submit">
+          Log In
+        </button>
+
+        <p id="loginMessage" role="status"></p>
+
+      </form>
+
+      <p>
+        New to StudyHub?
+        <a href="signup.html">Create an account</a>
+      </p>
+
+    </section>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
