@@ -1,12 +1,134 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10284b"><title>Your dashboard | StudyHub</title><link rel="stylesheet" href="style.css"></head>
-<body data-page="dashboard"><header class="top"><a class="brand" href="index.html">Study<span>Hub</span></a><nav aria-label="Main navigation"><a href="dashboard.html" data-page="dashboard">Dashboard</a><a href="community.html" data-page="community">Community</a><a href="notes.html" data-page="notes">Notes</a><a href="library.html" data-page="library">E-library</a><a href="courses.html" data-page="courses">Courses</a><a href="quizzes.html" data-page="quizzes">Quizzes</a><a href="gpa.html" data-page="gpa">GPA calculator</a><a href="alarm.html" data-page="alarm">Study timer</a><a href="timetable.html" data-page="timetable">Timetable</a><a href="progress.html" data-page="progress">Progress</a><a href="settings.html" data-page="settings">Settings</a></nav></header>
-<main class="wrap"><div class="page-intro"><div class="eyebrow">Study smarter, one step at a time</div><h1>Your dashboard</h1><p class="muted">A calm space to plan, learn and track your progress.</p></div>
-<section class="hero"><div><div class="eyebrow">Your student workspace</div><h1>Welcome back, <span data-user>Student</span>!</h1><p>Small steps today can make a big difference. What would you like to work on?</p><div class="actions"><a class="btn gold" href="notes.html">Write a note</a><a class="btn light" href="timetable.html">Plan my week</a></div></div><div class="hero-mark" aria-hidden="true">✦</div></section>
-<h2 class="section-title">Your study snapshot</h2><div class="grid"><section class="card"><p>Saved notes</p><div class="stat" data-count="0">0</div><a href="notes.html">Open notes →</a></section><section class="card"><p>Courses</p><div class="stat" data-count="1">0</div><a href="courses.html">Open courses →</a></section><section class="card"><p>Progress tasks</p><div class="stat" data-count="2">0</div><a href="progress.html">Track progress →</a></section></div>
-<h2 class="section-title">Your study tools</h2><div class="grid"><a class="card tool-card" href="gpa.html"><span class="icon">▦</span><h3>GPA calculator</h3><p>Estimate your semester results.</p></a><a class="card tool-card" href="quizzes.html"><span class="icon">✎</span><h3>Quick quizzes</h3><p>Practise and test what you know.</p></a><a class="card tool-card" href="alarm.html"><span class="icon">◷</span><h3>Study timer</h3><p>Make time for focused learning.</p></a><a class="card tool-card" href="library.html"><span class="icon">▤</span><h3>E-library</h3><p>Find learning resources.</p></a><a class="card tool-card" href="courses.html"><span class="icon">▣</span><h3>Courses</h3><p>Keep your subjects organised.</p></a><a class="card tool-card" href="progress.html"><span class="icon">↗</span><h3>Progress tracker</h3><p>Keep track of your goals.</p></a></div>
-<section class="community-promo"><div><div class="eyebrow">Learn together</div><h2>Student Community</h2><p class="muted">Meet fellow learners, share study tips and have friendly study conversations.</p></div><a class="btn gold" href="community.html">Open community →</a></section>
-</main><footer class="footer">StudyHub · A student project prototype · <span id="year">2026</span></footer><script src="js/main.js"></script><script src="dashboard.js"></script></body></html>
-<script src="js/main.js"></script>
-<script src="dashboard.js"></script>
-<script type="module" src="dashboard-auth.js"></script>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10284b">
+  <title>Dashboard | StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head><body data-page="dashboard">  <div class="sh-layout"><aside class="sh-sidebar" id="studyhubSidebar">
+  <a class="brand" href="dashboard.html">
+    Study<span>Hub</span>
+  </a>
+
+  <div class="sidebar-label">Workspace</div>
+
+  <nav aria-label="StudyHub navigation">
+    <a href="dashboard.html" data-page="dashboard" class="active">⌂ Dashboard</a>
+    <a href="community.html" data-page="community">♧ Community</a>
+  </nav>
+
+  <div class="sidebar-label">Study tools</div>
+
+  <nav aria-label="Study tools">
+    <a href="notes.html" data-page="notes">✎ Notes</a>
+    <a href="library.html" data-page="library">▤ E-library</a>
+    <a href="courses.html" data-page="courses">▣ Courses</a>
+    <a href="quizzes.html" data-page="quizzes">✓ Quizzes</a>
+    <a href="gpa.html" data-page="gpa">▦ GPA calculator</a>
+    <a href="alarm.html" data-page="alarm">◷ Study timer</a>
+    <a href="timetable.html" data-page="timetable">▤ Timetable</a>
+    <a href="progress.html" data-page="progress">↗ Progress</a>
+  </nav>
+
+  <div class="sidebar-label">Account</div>
+
+  <nav aria-label="Account settings">
+    <a href="settings.html" data-page="settings">⚙ Settings</a>
+  </nav>
+</aside>
+
+<div class="sh-main">
+
+  <button
+    class="sh-menu-toggle"
+    id="sidebarToggle"
+    type="button"
+    aria-controls="studyhubSidebar"
+    aria-expanded="false">
+    ☰ Menu
+  </button>
+
+  <main class="sh-content">
+
+    <div class="page-intro">
+      <div class="eyebrow">Your student workspace</div>
+      <h1>Dashboard</h1>
+      <p class="muted">Your learning journey, organised in one place.</p>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Welcome to StudyHub</div>
+        <h1>Welcome back, <span data-user>Student</span>!</h1>
+        <p>
+          Every small step counts. Choose a tool from the sidebar
+          and keep moving towards your academic goals.
+        </p>
+        <div class="actions">
+          <a class="btn gold" href="notes.html">Write a note</a>
+          <a class="btn light" href="timetable.html">Plan my week</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">✦</div>
+    </section>
+
+    <h2 class="section-title">Your study snapshot</h2>
+
+    <div class="grid">
+      <section class="card">
+        <p>Saved notes</p>
+        <div class="stat" data-count="0">0</div>
+        <a href="notes.html">Open notes →</a>
+      </section>
+
+      <section class="card">
+        <p>Courses</p>
+        <div class="stat" data-count="1">0</div>
+        <a href="courses.html">Open courses →</a>
+      </section>
+
+      <section class="card">
+        <p>Progress tasks</p>
+        <div class="stat" data-count="2">0</div>
+        <a href="progress.html">Track progress →</a>
+      </section>
+    </div>
+
+    <section class="community-promo">
+      <div>
+        <div class="eyebrow">Learn together</div>
+        <h2>Student Community</h2>
+        <p class="muted">
+          Connect with other learners and share your study journey.
+        </p>
+      </div>
+      <a class="btn gold" href="community.html">Visit community →</a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    StudyHub · Your student workspace · 2026
+  </footer>
+
+</div>
+
+  </div>  <script src="js/main.js"></script>  <script src="dashboard.js"></script>  <script type="module" src="dashboard-auth.js"></script>  <script>
+    const menuButton = document.getElementById("sidebarToggle");
+    const sidebar = document.getElementById("studyhubSidebar");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = sidebar.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    sidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        sidebar.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script></body>
+  </html>
