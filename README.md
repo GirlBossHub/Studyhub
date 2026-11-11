@@ -27,3 +27,4 @@ This is a front-end learning prototype. Data is stored in browser localStorage. 
 - Community members are shown once per display name in the roster, with the existing status updated instead of appending repeated status rows. Stale local demo records are removed.
 - Dark/light mode remains available in Settings and the saved preference is applied across pages.
 - Presence and chat remain browser-local prototypes; use a secure backend before inviting students to use a shared, multi-device community.
+StudyHub deployment refresh.
